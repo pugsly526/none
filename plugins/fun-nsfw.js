@@ -112,7 +112,7 @@ async (conn, mek, m, { from, l, quoted, body, isCmd, command, args, q, isGroup, 
         await reply('❌ An error occurred while fetching the image.');
     }
 });
-malvin({
+lee({
     pattern: "erec", // Nom de la commande
     desc: "Fetch a NSFW image related to the command",
     category: "fun",
