@@ -1,7 +1,7 @@
 const { lee } = require('../lee');
 const axios = require('axios');
 const yts = require('yt-search');
-const Config = require('../config');
+const Config = require('../settings');
 
 // Optimized axios instance
 const axiosInstance = axios.create({
