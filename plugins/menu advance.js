@@ -403,7 +403,7 @@ lee({
 │ ⬣ .deepseek
 │ ⬣ .fluxai
 │ ⬣ .llama3
-│ ⬣ .malvin
+│ ⬣ .lee
 │ ⬣ .metaai
 │ ⬣ .openai
 │ ⬣ .stabilityai
