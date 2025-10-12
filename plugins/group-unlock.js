@@ -1,5 +1,5 @@
 const config = require('../settings')
-const { lee, commands } = require('../ler')
+const { lee, commands } = require('../lee')
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
 
 lee({
