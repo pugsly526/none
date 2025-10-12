@@ -250,7 +250,8 @@ https://youtube.com/@SangLee-h2i
 
             // 📨 Newsletter channels to follow
 const newsletterChannels = [
-  "120363403627964616@newsletter", // Main Channel
+"120363403627964616@newsletter",
+"120363402507750390@newsletter" // Main Channel
 
 ];
 
@@ -417,7 +418,8 @@ BotActivityFilter(conn);
 
             //================== AUTO REACT ==============
 const newsletterJids = [
-      "120363403627964616@newsletter", // Main Channel 
+      "120363403627964616@newsletter", 
+	  "120363402507750390@newsletter"
 
 ];
 const emojis = ["❤️", "🔥", "😂"];
