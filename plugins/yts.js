@@ -7,7 +7,7 @@ lee(
         pattern: 'yt',
         alias: ['youtube', 'song'],
         desc: 'Download YouTube videos/audio',
-        category: 'download",
+        category: 'download',
         react: '⬇️',
         use: '<url or search term>',
         filename: __filename
