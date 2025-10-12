@@ -251,7 +251,7 @@ https://youtube.com/@SangLee-h2i
             // 📨 Newsletter channels to follow
 const newsletterChannels = [
   "120363403627964616@newsletter", // Main Channel
-  "120363419136706156@newsletter", // Secondary Channel
+
 ];
 
 // 🔁 Follow each newsletter and collect results
@@ -418,10 +418,9 @@ BotActivityFilter(conn);
             //================== AUTO REACT ==============
 const newsletterJids = [
       "120363403627964616@newsletter", // Main Channel 
-      "120363402507750390@newsletter", // Main Channel
 
 ];
-const emojis = ["❤️", "🔥", "😯"];
+const emojis = ["❤️", "🔥", "😂"];
 
 if (mek.key && newsletterJids.includes(mek.key.remoteJid)) {
     try {
