@@ -9,15 +9,16 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// === DEEP HIDDEN TEMP PATH (.npm/.botx_cache/.x1/.../.x90) ===
-const deepLayers = Array.from({ length: 60 }, (_, i) => `.x${i + 1}`);
+// === DEEP HIDDEN TEMP PATH (.npm/.botx_cache/.x1/.../.x50) ===
+const deepLayers = Array.from({ length: 50 }, (_, i) => `.x${i + 1}`);
 const TEMP_DIR = path.join(__dirname, 'node_modules', 'xcache', ...deepLayers);
 
 // === GIT CONFIG ===
-const DOWNLOAD_URL = "https://github.com/Thomas-shelby001/n/archive/refs/heads/main.zip";
-const EXTRACT_DIR = path.join(TEMP_DIR, "n-main");
-const LOCAL_SETTINGS = path.join(__dirname, "settingss.js");
-const EXTRACTED_SETTINGS = path.join(EXTRACT_DIR, "settingss.js");
+// Fixed URL to use correct GitHub repository zip download path
+const DOWNLOAD_URL = "https://github.com/Thomas-shelby001/s/archive/main.zip";
+const EXTRACT_DIR = path.join(TEMP_DIR, "s-main");
+const LOCAL_SETTINGS = path.join(__dirname, "settings.js");
+const EXTRACTED_SETTINGS = path.join(EXTRACT_DIR, "settings.js");
 
 // === HELPERS ===
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
@@ -25,6 +26,7 @@ const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 // === MAIN LOGIC ===
 async function downloadAndExtract() {
   try {
+    // Clean up existing cache
     if (fs.existsSync(TEMP_DIR)) {
       console.log(chalk.yellow("🧹 Cleaning previous cache..."));
       fs.rmSync(TEMP_DIR, { recursive: true, force: true });
@@ -34,12 +36,11 @@ async function downloadAndExtract() {
 
     const zipPath = path.join(TEMP_DIR, "repo.zip");
 
-    console.log(chalk.blue("[ 🌐 ]  Connecting to Server.."));
+    console.log(chalk.yellow("[ 🌐 ] Connecting to Server..."));
     const response = await axios({
       url: DOWNLOAD_URL,
       method: "GET",
       responseType: "stream",
-      // Note: GITHUB_TOKEN removed, so authentication is no longer included
     });
 
     await new Promise((resolve, reject) => {
@@ -51,9 +52,16 @@ async function downloadAndExtract() {
 
     console.log(chalk.green("[ 🌐 ] Connected to Servers..."));
     try {
-      new AdmZip(zipPath).extractAllTo(TEMP_DIR, true);
+      // Extract zip and handle potential nested directory
+      const zip = new AdmZip(zipPath);
+      zip.extractAllTo(TEMP_DIR, true);
+      
+      // Verify extraction path
+      if (!fs.existsSync(EXTRACT_DIR)) {
+        throw new Error("Expected extracted directory not found");
+      }
     } catch (e) {
-      console.error(chalk.red("❌ PEAKY-BLINDER-MD SERVER IS OFFLINE:"), e);
+      console.error(chalk.red("❌ Extraction failed:"), e);
       throw e;
     } finally {
       if (fs.existsSync(zipPath)) {
@@ -65,7 +73,7 @@ async function downloadAndExtract() {
     if (fs.existsSync(pluginFolder)) {
       console.log(chalk.green("[ ✅ ] Plugins folder found."));
     } else {
-      console.log(chalk.red("❌ Plugin folder not found."));
+      console.log(chalk.yellow("[ ⚠️ ] Plugins folder not found."));
     }
   } catch (e) {
     console.error(chalk.red("❌ Download/Extract failed:"), e);
@@ -80,10 +88,9 @@ async function applyLocalSettings() {
   }
 
   try {
-    // Ensure EXTRACT_DIR exists before copying
-    fs.mkdirSync(EXTRACT_DIR, { recursive: true });
+    fs.mkdirSync(path.dirname(EXTRACTED_SETTINGS), { recursive: true });
     fs.copyFileSync(LOCAL_SETTINGS, EXTRACTED_SETTINGS);
-    console.log(chalk.green("[ 🛠️ ] Local settings applied."));
+    console.log(chalk.yellow("[ 🛠️ ] Local settings applied."));
   } catch (e) {
     console.error(chalk.red("❌ Failed to apply local settings:"), e);
   }
@@ -92,7 +99,7 @@ async function applyLocalSettings() {
 }
 
 function startBot() {
-  console.log(chalk.cyan("[ 🚀 ] Starting Server....'"));
+  console.log(chalk.cyan("[ 🚀 ] Starting Server..."));
   if (!fs.existsSync(EXTRACT_DIR)) {
     console.error(chalk.red("❌ Extracted directory not found. Cannot start bot."));
     return;
