@@ -48,7 +48,7 @@ lee({
         }
 
         // Image AI à envoyer
-        const ALIVE_IMG = 'https://files.catbox.moe/79tf9z.jpg'; // Remplacez par l'URL de votre image AI
+        const ALIVE_IMG = 'https://files.catbox.moe/tyn061.jpg'; // Remplacez par l'URL de votre image AI
 
         // Légende avec des informations formatées
         const formattedInfo = `🤖 *Lee's Response:*\n\n${gptResponse}`;
@@ -123,7 +123,7 @@ lee({
         }
 
         // AI image to attach
-        const AI_IMG = 'https://files.catbox.moe/gqsf1j.jpg'; // Replace with a valid image URL
+        const AI_IMG = 'https://files.catbox.moe/tyn061.jpg'; // Replace with a valid image URL
 
         // Formatted response text
         const formattedInfo = `🤖 *Llama3 Response:*\n\n${llamaResponse}`;
