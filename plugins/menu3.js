@@ -117,7 +117,7 @@ ${menu.other || '│ (No commands found)'}
         );
 
         await conn.sendMessage(from, {
-      audio: { url: 'https://files.catbox.moe/j3dvqy.mp3' },
+      audio: { url: 'https://o.uguu.se/bENmpXKa.mp3' },
       mimetype: 'audio/mp4',
       ptt: true
     }, { quoted: mek });
