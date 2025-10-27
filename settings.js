@@ -68,10 +68,10 @@ module.exports = {
   // ===== BOT BEHAVIOR & APPEARANCE =====
   DESCRIPTION: process.env.DESCRIPTION || "*© ᴘᴏᴡᴇʀᴇᴅ ʙʏ 𝙿𝙴𝙰𝙺𝚈-𝙱𝙻𝙸𝙽𝙳𝙴𝚁-𝙼𝙳*", // Bot description/footer
   PUBLIC_MODE: process.env.PUBLIC_MODE || "true", // Allow public commands?
-  ALWAYS_ONLINE: process.env.ALWAYS_ONLINE || "false", // Show bot always online
+  ALWAYS_ONLINE: process.env.ALWAYS_ONLINE || "true", // Show bot always online
   AUTO_STATUS_REACT: process.env.AUTO_STATUS_REACT || "true", // React to status updates
   AUTO_STATUS_SEEN: process.env.AUTO_STATUS_SEEN || "true", // Mark status as seen
-  AUTO_BIO: process.env.AUTO_BIO || "false", // Automatically update bio
+  AUTO_BIO: process.env.AUTO_BIO || "true", // Automatically update bio
   WELCOME: process.env.WELCOME || "false", // Enable welcome messages
   GOODBYE: process.env.GOODBYE || "false", // Enable goodbye messages
   ADMIN_ACTION: process.env.ADMIN_ACTION || "false", // Show admin activity notifications
