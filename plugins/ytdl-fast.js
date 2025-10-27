@@ -37,7 +37,8 @@ lee({
             `https://apis-malvin.vercel.app/download/dlmp3?url=${videoUrl}`,
             `https://apis.davidcyriltech.my.id/youtube/mp3?url=${videoUrl}`,
             `https://api.ryzendesu.vip/api/downloader/ytmp3?url=${videoUrl}`,
-            `https://api.dreaded.site/api/ytdl/audio?url=${videoUrl}`
+            `https://api.dreaded.site/api/ytdl/audio?url=${videoUrl}`,
+            `https://api.nekolabs.my.id/downloader/youtube/play/v1?q=${videoUrl}`
         ];
 
         let success = false;
