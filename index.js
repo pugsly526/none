@@ -1101,3 +1101,10 @@ console.log(chalk.bold.yellow(`
 setTimeout(() => {
     connectToWA()
 }, 4000);
+
+// Prevent Render from shutting down your bot due to idling
+setInterval(() => {}, 1000);
+
+// Catch unexpected errors to prevent crashes
+process.on('uncaughtException', console.error);
+process.on('unhandledRejection', console.error);
