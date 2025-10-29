@@ -1095,13 +1095,7 @@ app.use(express.static(path.join(__dirname, 'lib')));
 app.get('/', (req, res) => {
     res.redirect('/lee.html');
 });
-app.listen(port, () => console.log(chalk.cyan(`
-╭──[ 🤖 WELCOME DEAR USER! ]─
-│
-│ If you enjoy using this bot,
-│ please ⭐  Star it & 🍴  Fork it on GitHub!
-│ your support keeps it growing! 💙 
-╰─────────`)));
+
 console.log(chalk.bold.yellow(`
 ╔═══════════════════════════════════════════╗
 ║                                           ║
