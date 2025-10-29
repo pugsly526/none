@@ -1102,9 +1102,10 @@ setTimeout(() => {
     connectToWA()
 }, 4000);
 
-// Prevent Render from shutting down your bot due to idling
-setInterval(() => {}, 1000);
+import express from "express";
+const app = express();
+app.get("/", (req, res) => res.send("PEAKY-BLINDER-MD is alive ✅"));
+app.listen(process.env.PORT || 3000, () => {
+  console.log("✅ Web server running on port", process.env.PORT || 3000);
+});
 
-// Catch unexpected errors to prevent crashes
-process.on('uncaughtException', console.error);
-process.on('unhandledRejection', console.error);
