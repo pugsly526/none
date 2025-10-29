@@ -88,6 +88,19 @@ const app = express();
 const port = process.env.PORT || 7860;
 
 
+app.get("/", (req, res) => {
+  res.send(`✅ PEAKY-BLINDER-MD is alive on ${os.hostname()} at ${new Date().toLocaleString()}`);
+});
+
+// Render needs a listening port to stay alive
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`✅ KEEP-ALIVE server running on port ${PORT}`));
+
+// Prevent Render sleep
+setInterval(() => {
+  console.log("⏱️ Bot heartbeat: still alive at", new Date().toISOString());
+}, 1000 * 60 * 5); // every 5 minutes
+
 
 //=========SESSION-AUTH=====================
 
@@ -1102,8 +1115,4 @@ setTimeout(() => {
     connectToWA()
 }, 4000);
 
-app.get("/", (req, res) => res.send("PEAKY-BLINDER-MD is alive ✅"));
-app.listen(process.env.PORT || 3000, () => {
-  console.log("✅ Web server running on port", process.env.PORT || 3000);
-});
 
