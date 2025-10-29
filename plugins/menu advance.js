@@ -96,18 +96,7 @@ lee({
             }
         };
 
-        const sendMenuAudio = async () => {
-            try {
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                await conn.sendMessage(from, {
-                    audio: { url: 'https://files.catbox.moe/fbnesa.mp3' },
-                    mimetype: 'audio/mp4',
-                    ptt: true
-                }, { quoted: mek });
-            } catch (e) {
-                console.log('Audio send failed');
-            }
-        };
+        
 
         let sentMsg;
         try {
@@ -115,10 +104,7 @@ lee({
                 sendMenuImage(),
                 new Promise((_, reject) => setTimeout(() => reject(new Error('Image timeout')), 10000))
             ]);
-            await Promise.race([
-                sendMenuAudio(),
-                new Promise((_, reject) => setTimeout(() => reject(new Error('Audio timeout')), 8000))
-            ]);
+            
         } catch (e) {
             console.log('Error sending menu:', e.message);
             if (!sentMsg) {
