@@ -14,7 +14,7 @@ async (conn, mek, m, { from, reply, sender, args }) => {
         const movieName = args.length > 0 ? args.join(' ') : m.text.replace(/^[\.\#\$\!]?movie\s?/i, '').trim();
         
         if (!movieName) {
-            return reply("📽️ Please provide the name of the movie.\nExample: .movie Iron Man");
+            return reply("📽️ Please provide the name of the movie.\nExample: .movie Peaky Blinders");
         }
 
         const apiUrl = `https://apis.davidcyriltech.my.id/imdb?query=${encodeURIComponent(movieName)}`;
