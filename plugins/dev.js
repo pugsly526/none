@@ -33,7 +33,7 @@ lee({
 │ ───────────────
 │ 🧠 Name    : Sang Lee
 │ 🎂 Age     : 19(2025)
-│ 📞 Contact : wa.me/254105269466
+│ 📞 Contact : wa.me/254116266407
 │ 📺 YouTube : Sang Lee
 │            https://youtube.com/@SangLee-h2i
 │
