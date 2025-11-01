@@ -27,7 +27,7 @@ lee(
     async (conn, mek, m, { text, reply }) => {
         try {
             // Input validation
-            if (!text) return reply(`📺 *Usage:* ${Config.PREFIX}seriesdl <series> <season> <episode>\nExample: ${Config.PREFIX}seriesdl "Money Heist" 1 1`);
+            if (!text) return reply(`📺 *Usage:* ${Config.PREFIX}seriesdl <series> <season> <episode>\nExample: ${Config.PREFIX}seriesdl "Peaky blinders" 1 1`);
 
             await conn.sendMessage(mek.chat, { react: { text: "⏳", key: mek.key } });
 
