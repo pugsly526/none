@@ -59,11 +59,7 @@ lee({
       }
     }, { quoted: mek });
 
-    await conn.sendMessage(from, {
-      audio: { url: 'https://files.catbox.moe/fbnesa.mp3' },
-      mimetype: 'audio/mp4',
-      ptt: true
-    }, { quoted: mek });
+    
     
   } catch (error) {
     console.error("Error in alive command: ", error);
